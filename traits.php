@@ -25,8 +25,9 @@ trait TestTraitTow
 
 class TestClass
 {
-    use TestTraitOne;
-    use TestTraitTow;
+    // invoke the trait
+    use TestTraitOne , TestTraitTow;
+
 }
 
 $ob = new TestClass();
