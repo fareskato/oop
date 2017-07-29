@@ -13,6 +13,11 @@ trait TestTraitOne
     {
         echo 'hello there from trait one' . '<br />';
     }
+
+    public function hello()
+    {
+        echo 'Hello fro first trait!';
+    }
 }
 
 trait TestTraitTow
@@ -21,15 +26,29 @@ trait TestTraitTow
     {
         echo 'Hi from another trait' . '<br />';
     }
+    public function hello()
+    {
+        echo 'Hello fro second trait!';
+    }
+
 }
 
 class TestClass
 {
     // invoke the trait
-    use TestTraitOne , TestTraitTow;
+    /**
+     * in case we have the same method name in many traits
+     * we can define which trait method we can user like so:
+     */
+    use TestTraitOne , TestTraitTow{
+        TestTraitOne::hello insteadof TestTraitTow;
+    }
+
 
 }
 
 $ob = new TestClass();
 $ob->sayHello() ;
 $ob->sayHi();
+echo "<br />";
+$ob->hello();
