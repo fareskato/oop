@@ -16,7 +16,7 @@ trait TestTraitOne
 
     public function hello()
     {
-        echo 'Hello fro first trait!';
+        echo 'Hello from first trait!' . '<br />';
     }
 }
 
@@ -28,7 +28,7 @@ trait TestTraitTow
     }
     public function hello()
     {
-        echo 'Hello fro second trait!';
+        echo 'Hello from second trait!' . '<br />';
     }
 
 }
@@ -42,6 +42,7 @@ class TestClass
      */
     use TestTraitOne , TestTraitTow{
         TestTraitOne::hello insteadof TestTraitTow;
+        TestTraitTow::hello as secondHello;
     }
 
 
@@ -50,5 +51,6 @@ class TestClass
 $ob = new TestClass();
 $ob->sayHello() ;
 $ob->sayHi();
-echo "<br />";
 $ob->hello();
+echo "<b>use the same function from another trait with alias : </b>";
+$ob->secondHello();
