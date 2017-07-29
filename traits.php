@@ -4,7 +4,9 @@
  * 01- can not inherit trait and can not create object from trait
  * 02- to use trait type use in the class
  * 03- each class can use more than one trait
- * 04- so we can say that traits solved the multi inheritance problem
+ *     so we can say that traits solved the multi inheritance problem
+ * 05- we can define abstract function in trait
+ * 06- can define static properties and functions in trait
  */
 
 trait TestTraitOne
@@ -18,6 +20,12 @@ trait TestTraitOne
     {
         echo 'Hello from first trait!' . '<br />';
     }
+
+    /**
+     * use abstract method in trait
+     */
+    abstract public function body();
+
 }
 
 trait TestTraitTow
@@ -45,6 +53,11 @@ class TestClass
         TestTraitTow::hello as secondHello;
     }
 
+    // we have to define the body of the abstract function here
+    public function body()
+    {
+        echo 'hello from the body of the abstract function' . '<br />';
+    }
 
 }
 
@@ -54,3 +67,4 @@ $ob->sayHi();
 $ob->hello();
 echo "<b>use the same function from another trait with alias : </b>";
 $ob->secondHello();
+$ob->body();
