@@ -16,11 +16,22 @@
 
 /**
  * self keyword:
- *  self refers to the class which call the method osr the property.
+ *  self refers to the class it self
  */
 /**
  * static
+ * 01- inside the class
+  *     01- call static property self::$prperty_name
+  *     02- call static method self::method_name
+  *     03- For objects : call static property $object_name::property_name
+  * 02- outside the class
+  *     01- call static property ClassName::$prperty_name
+  *     02- call static method ClassName::method_name
+  *     03- For objects : call static method $object_name::method_name
  */
+
+
+
 
 class Car
 {
