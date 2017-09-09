@@ -1,9 +1,10 @@
 <?php
 /**
  * Interface Classes are pure prototypes
- * 01 - multi implements (solved multi inheritance problem)
- * 02- all methods are public with no body
- * 03- all methods body have to define in the sub classes
+ * 01- Interfaces can only have constants and methods stubs(methoda without body) and all methods
+ *     should be public
+ * 02 - Multi implements (solved multi inheritance problem)
+
  */
 
 

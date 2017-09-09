@@ -1,9 +1,13 @@
 <?php
 /**
  * Abstract Classes
+ * 01- Abstract class can be inherited but not instantiated
+ * 02- Abstract classes can have constants, properties(variables), method stubs (methods without a 
+ *      body) and defined methods.
+ *     
  */
 
-// Abstract class can be inherited but not instantiated
+ 
 /**
  * Class Employee
  */
