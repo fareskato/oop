@@ -18,6 +18,7 @@
  * self keyword:
  *  self refers to the class it self
  */
+
 /**
  * static
  * 01- inside the class
@@ -28,6 +29,8 @@
   *     01- call static property ClassName::$prperty_name
   *     02- call static method ClassName::method_name
   *     03- For objects : call static method $object_name::method_name
+  * 03- A property declared as static can't be accessed with an instance of class(object)
+        BUT static methods can be accessed 
  */
 
 
@@ -84,9 +87,19 @@ echo "<hr />";
 
 
 /**
- * static
+ * Late Static Binding
+ * 01 - Uses to reference the called class
+ * 02 - This feature was named "late static bindings" with an internal perspective in mind. 
+ * 03 -"Latebinding" comes from the fact that static:: will not be resolved using the class where the 
+ *     method is defined but it will rather be computed using runtime information. It was also 
+ *     called a "static binding" as it can be used for (but is not limited to) static method calls.
+
+ * Limitations of self:: 
+ * Static references to the current class like self:: or __CLASS__ are resolved using the class in 
+ * which the function belongs, as in where it was defined:
  */
 
+// Example 01
 class MyClassA {
     public static function who() {
         echo __CLASS__;
@@ -104,3 +117,30 @@ class MyClassB extends MyClassA {
 }
 
 MyClassB::test();
+
+// Example 02
+    class Car
+    {
+        public static function run()
+        {
+            return static::getName();
+        }
+
+        private static function getName()
+        {
+            return 'Car';
+        }
+    }
+
+    class Toyota extends Car
+    {
+        public static function getName()
+        {
+            return 'Toyota';
+        }
+    }
+
+    echo Car::run(); // Output: Car
+    echo Toyota::run(); // Output: Toyota
+
+
